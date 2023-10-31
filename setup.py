@@ -11,8 +11,6 @@ setup(
     scripts=['bin/gen_frame'],
     classifiers=[
         'Programming Language :: Python',
-        'Environment :: Console',
         'Intended Audience :: Science/Research',
-        'Operating System :: OS Independent',
         'Topic :: Scientific/Engineering'],
     keywords = ['ChIMES', 'Many-Body Potentials', 'Optimization'])
