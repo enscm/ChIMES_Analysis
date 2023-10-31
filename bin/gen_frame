@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+import sys
+import modules.gen_frame as traj
+
+try:
+    traj.main()
+except:
+    sys.exit(1)
