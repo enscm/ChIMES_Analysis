@@ -11,3 +11,6 @@ ChIMES_Analysis/
 │   ├── gen_frame.py  
 ├── examples/    
   
+
+# Authors
+Qing WANG
