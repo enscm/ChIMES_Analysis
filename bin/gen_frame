@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import sys
-import modules.gen_frame as traj
+import modules.gen_frame as  _write_frame
 
 try:
-    traj.main()
+     _write_frame.main()
 except:
     sys.exit(1)
