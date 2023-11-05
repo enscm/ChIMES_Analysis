@@ -148,7 +148,7 @@ def _read_data(structure):
 
             multi_frames.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
 
-	return one_frame, multi_frame
+	return one_frame, multi_frames
 
 def _write_frame(mode=None,structure_list=None):
     
@@ -167,6 +167,12 @@ def _write_frame(mode=None,structure_list=None):
             	multi_out.writelines(multi)
 
 def main():
+    print("		USAGE:	gen_frame [MODE] structure_list	")
+    print("		Available mode:					")
+    print("						"split" (string)			")
+    print("						"combine"(string)			")
+    print("")
+    
     mode = sys.argv[1]
     structure_list = sys.argv[2]
     
@@ -175,6 +181,7 @@ def main():
 
     if (mode=="combine"):
         _write_frame(mode=mode,structure_list=structure_list)
+    
 
 if __name__ == "__main__":
     main()
