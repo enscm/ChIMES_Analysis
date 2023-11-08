@@ -73,7 +73,7 @@ def _read_data(structure):
 
         one_frame=[]
         multi_frames=[]
-			
+
         one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
         multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
@@ -86,7 +86,7 @@ def _read_data(structure):
             symbol = symbols[_]
             position = positions[_].tolist()
             force_diff = force_diffs[_].tolist()
-            
+
             one_frame.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
 
             multi_frames.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
@@ -152,7 +152,7 @@ def _read_data(structure):
     return one_frame, multi_frames
 
 def _write_frame(mode=None,structure_list=None):
-    
+
     with open(structure_list,"r") as f:
         lines=f.readlines()
 
@@ -163,19 +163,19 @@ def _write_frame(mode=None,structure_list=None):
             with open(structure + "/one_frame.xyzf","w") as one_out:
                 one_out.writelines(one)
         if (mode=="combine"):
-            with open("combine_total_"+str(len(lines))+"_frames.xyzf)" as multi_out:
-            	multi_out.writelines(multi)
+            with open("combine_total_"+str(len(lines))+"_frames.xyzf") as multi_out:
+                multi_out.writelines(multi)
 
 def main():
-    print("		USAGE:	gen_frame [MODE] structure_list	")
-    print("		Available mode:					")
-    print("						mode split: split (string)			")
-    print("						mode combine: combine (string)			")
+    print("             USAGE:  gen_frame [MODE] structure_list ")
+    print("             Available mode:                                 ")
+    print("                                             mode split: split (string)                      ")
+    print("                                             mode combine: combine (string)                  ")
     print("")
-    
+
     mode = sys.argv[1]
     structure_list = sys.argv[2]
-    
+
     if (mode=="split"):
         _write_frame(mode=mode,structure_list=structure_list)
 
