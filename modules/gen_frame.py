@@ -5,12 +5,13 @@ from os.path import exists
 import json
 import sys
 
-def _read_data(structure):
-    """ This function reads energy and force information either from OUTCAR if exists
+""" This script reads energy and force information either from OUTCAR if exists
     or from size-reduced file "outcar" (for energy) and "force" (for force info);
     and read other geometrical information.
-    then construct a trajectory file with ChiMES format, named as "one_frame.xyzf"
-    """
+    then construct either trajectory files in ChIMES format, named as "one_frame.xyzf" under corresponding folders (mode split)
+    or construct one trajectory file named as "combine_total_"+len(number_of_frames)+"_frames.xyzf" containing all trajectories of listed structures.
+"""
+def _read_data(structure):
     eVtoKcal = 23.06035
     f_convert = 0.194469064593167E-01  # convert eV/A to Hatree/Bohr
 
