@@ -15,7 +15,7 @@ def _read_data(structure):
     eVtoKcal = 23.06035
     f_convert = 0.194469064593167E-01  # convert eV/A to Hatree/Bohr
 
-	match_B = 'Extrapolated to 0'
+    match_B = 'Extrapolated to 0'
     match_C = 'Total Forces'
 
     with open('atomic_energy_list.json', "r") as file:
@@ -74,9 +74,9 @@ def _read_data(structure):
         one_frame=[]
         multi_frames=[]
 			
-		one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
+        one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
-		multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
+        multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
         forces_dftb = np.array(forces_dftb)
         forces = np.array(forces)
@@ -133,9 +133,9 @@ def _read_data(structure):
         one_frame=[]
         multi_frames=[]
 
-		one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
+        one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
-		multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
+        multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
         forces_dftb = np.array(forces_dftb)
 
@@ -149,22 +149,21 @@ def _read_data(structure):
 
             multi_frames.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
 
-	return one_frame, multi_frames
+    return one_frame, multi_frames
 
 def _write_frame(mode=None,structure_list=None):
     
     with open(structure_list,"r") as f:
-    lines=f.readlines()
+        lines=f.readlines()
 
-	multi_frames = []
     for line in lines:
         structure = line.strip().split()[0]
         one,multi = _read_data(structure)
         if (mode=="split"):
             with open(structure + "/one_frame.xyzf","w") as one_out:
-            	one_out.writelines(one)
+                one_out.writelines(one)
         if (mode=="combine"):
-            with open("combine_total_"+str(len(lines))+"_frames.xyzf) as multi_out:
+            with open("combine_total_"+str(len(lines))+"_frames.xyzf)" as multi_out:
             	multi_out.writelines(multi)
 
 def main():
@@ -182,7 +181,6 @@ def main():
 
     if (mode=="combine"):
         _write_frame(mode=mode,structure_list=structure_list)
-    
 
 if __name__ == "__main__":
     main()
