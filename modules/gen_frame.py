@@ -167,10 +167,10 @@ def _write_frame(mode=None,structure_list=None):
                 multi_out.writelines(multi)
 
 def main():
-    print("             USAGE:  gen_frame [MODE] structure_list ")
-    print("             Available mode:                                 ")
-    print("                                             mode split: split (string)                      ")
-    print("                                             mode combine: combine (string)                  ")
+    print("		USAGE:	gen_frame [MODE] structure_list	")
+    print("		Available mode:					")
+    print("						mode split: split (string)			")
+    print("						mode combine: combine (string)			")
     print("")
 
     mode = sys.argv[1]
