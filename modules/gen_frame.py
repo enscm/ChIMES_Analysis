@@ -11,7 +11,10 @@ import sys
     then construct either trajectory files in ChIMES format, named as "one_frame.xyzf" under corresponding folders (mode split)
     or construct one trajectory file named as "combine_total_"+len(number_of_frames)+"_frames.xyzf" containing all trajectories of listed structures.
 """
+multi_frames = []
+
 def _read_data(structure):
+
     eVtoKcal = 23.06035
     f_convert = 0.194469064593167E-01  # convert eV/A to Hatree/Bohr
 
@@ -72,7 +75,7 @@ def _read_data(structure):
         dftb = (tot - edftb) * eVtoKcal
 
         one_frame=[]
-        multi_frames=[]
+
 
         one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
@@ -131,7 +134,6 @@ def _read_data(structure):
         dftb = (tot-edftb)* eVtoKcal
 
         one_frame=[]
-        multi_frames=[]
 
         one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
@@ -159,6 +161,7 @@ def _write_frame(mode=None,structure_list=None):
     for line in lines:
         structure = line.strip().split()[0]
         one,multi = _read_data(structure)
+
         if (mode=="split"):
             with open(structure + "/one_frame.xyzf","w") as one_out:
                 one_out.writelines(one)
