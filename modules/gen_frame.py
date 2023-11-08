@@ -163,7 +163,7 @@ def _write_frame(mode=None,structure_list=None):
             with open(structure + "/one_frame.xyzf","w") as one_out:
                 one_out.writelines(one)
         if (mode=="combine"):
-            with open("combine_total_"+str(len(lines))+"_frames.xyzf") as multi_out:
+            with open("combine_total_"+str(len(lines))+"_frames.xyzf","w") as multi_out:
                 multi_out.writelines(multi)
 
 def main():
