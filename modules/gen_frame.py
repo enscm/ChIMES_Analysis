@@ -11,7 +11,6 @@ import sys
     then construct either trajectory files in ChIMES format, named as "one_frame.xyzf" under corresponding folders (mode split)
     or construct one trajectory file named as "combine_total_"+len(number_of_frames)+"_frames.xyzf" containing all trajectories of listed structures.
 """
-multi_frames = []
 
 def _read_data(structure):
 
@@ -75,11 +74,7 @@ def _read_data(structure):
         dftb = (tot - edftb) * eVtoKcal
 
         one_frame=[]
-
-
         one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
-
-        multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
         forces_dftb = np.array(forces_dftb)
         forces = np.array(forces)
@@ -89,10 +84,7 @@ def _read_data(structure):
             symbol = symbols[_]
             position = positions[_].tolist()
             force_diff = force_diffs[_].tolist()
-
             one_frame.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
-
-            multi_frames.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
 
     else:
         out = read_vasp_out(structure+'/OUTCAR')
@@ -134,40 +126,35 @@ def _read_data(structure):
         dftb = (tot-edftb)* eVtoKcal
 
         one_frame=[]
-
         one_frame.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
 
-        multi_frames.append(str(nb) + '\n' + 'NON_ORTHO ' + str(cell).replace(",", "")[1:-1] + ' ' + str(dft - dftb) + '\n')
-
         forces_dftb = np.array(forces_dftb)
-
         force_diffs = forces - forces_dftb
         for _ in range(0, nb):
             symbol = symbols[_]
             position = positions[_].tolist()
             force_diff = force_diffs[_].tolist()
-
             one_frame.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
 
-            multi_frames.append(symbol + ' ' + str(position).replace(",", "")[1:-1] + ' ' + str(force_diff).replace(",", "")[1:-1] + '\n')
-
-    return one_frame, multi_frames
+    return one_frame
 
 def _write_frame(mode=None,structure_list=None):
 
     with open(structure_list,"r") as f:
         lines=f.readlines()
 
+    multi_frames = []
     for line in lines:
         structure = line.strip().split()[0]
-        one,multi = _read_data(structure)
-
+        one = _read_data(structure)
+        multi_frames.append(one)
         if (mode=="split"):
             with open(structure + "/one_frame.xyzf","w") as one_out:
                 one_out.writelines(one)
         if (mode=="combine"):
             with open("combine_total_"+str(len(lines))+"_frames.xyzf","w") as multi_out:
-                multi_out.writelines(multi)
+                for frame in multi_frames:
+                    multi_out.writelines(frame)
 
 def main():
     print("		USAGE:	gen_frame [MODE] structure_list	")
