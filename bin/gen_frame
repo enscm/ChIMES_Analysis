@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import sys
-import modules.gen_frame as  _write_frame
+print(sys.path)
+from modules import gen_frame as _write_frame
 
 try:
-     _write_frame.main()
-except:
-    sys.exit(1)
+    _write_frame.main()
+except Exception as e:
+    print(f"An error occurred: {e}")
