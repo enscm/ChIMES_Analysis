@@ -1,4 +1,5 @@
 import os
+import sys
 import numpy as np
 
 def _read_matrix(structure):
@@ -29,6 +30,9 @@ def _reduce_matrix(prefix=None,structure_list=None):
 def main():
     print("		USAGE:	reduce_matrix structure_list	")
     print("")
+    structure_list = sys.argv[1]
+    prefix = sys.argv[2]
+    _reduce_matrix(prefix=prefix, structure_list=structure_list)
 
 if __name__ == "__main__":
     main()
