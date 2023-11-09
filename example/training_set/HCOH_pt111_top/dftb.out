@@ -1,0 +1,156 @@
+|===============================================================================
+|
+|  DFTB+ release 22.2
+|
+|  Copyright (C) 2006 - 2022  DFTB+ developers group
+|
+|===============================================================================
+|
+|  When publishing results obtained with DFTB+, please cite the following
+|  reference:
+|
+|  * DFTB+, a software package for efficient approximate density functional
+|    theory based atomistic simulations, J. Chem. Phys. 152, 124101 (2020).
+|    [doi: 10.1063/1.5143190]
+|
+|  You should also cite additional publications crediting the parametrization
+|  data you use. Please consult the documentation of the SK-files for the
+|  references.
+|
+|===============================================================================
+
+Reading input file 'dftb_in.hsd'
+Parser version: 12
+
+--------------------------------------------------------------------------------
+***  Converting input from parser version  6 to parser version 12 ...
+WARNING!
+-> Keyword renamed to 'Solver'.
+Path: dftbplusinput/Hamiltonian/DFTB/Eigensolver
+Line: 13-13 (File: dftb_in.hsd)
+
+***  Done.
+
+Reading SK-files:
+../../../skf_files/Pt-Pt.skf
+../../../skf_files/Pt-C.skf
+../../../skf_files/Pt-O.skf
+../../../skf_files/Pt-H.skf
+../../../skf_files/C-C.skf
+../../../skf_files/C-O.skf
+../../../skf_files/C-H.skf
+../../../skf_files/O-O.skf
+../../../skf_files/O-H.skf
+../../../skf_files/H-H.skf
+Done.
+
+
+Processed input in HSD format written to 'dftb_pin.hsd'
+
+Starting initialization...
+--------------------------------------------------------------------------------
+WARNING!
+-> Dipole printed for extended system : value printed is not well defined
+OpenMP threads:              1
+Chosen random seed:          2069944887
+Mode:                        Static calculation
+Self consistent charges:     Yes
+SCC-tolerance:                 0.100000E-08
+Max. scc iterations:                    100
+Shell resolved Hubbard:      No
+Spin polarisation:           No
+Nr. of up electrons:            86.000000
+Nr. of down electrons:          86.000000
+Periodic boundaries:         Yes
+Electronic solver:           Relatively robust
+Mixer:                       Broyden mixer
+Mixing parameter:                  0.200000
+Maximal SCC-cycles:                     100
+Nr. of chrg. vec. in memory:            100
+Electronic temperature:              0.950045E-03 H      0.258520E-01 eV
+Initial charges:             Set automatically (system chrg:   0.000E+00)
+Included shells:            Pt:  s, p, d
+                             C:  s, p
+                             O:  s, p
+                             H:  s
+K-points and weights:           1:  0.000000  0.000000  0.000000     0.040000
+                                2:  0.000000  0.200000  0.000000     0.080000
+                                3:  0.000000  0.400000  0.000000     0.080000
+                                4:  0.200000  0.000000  0.000000     0.080000
+                                5:  0.200000  0.200000  0.000000     0.080000
+                                6:  0.200000  0.400000  0.000000     0.080000
+                                7:  0.200000  0.600000  0.000000     0.080000
+                                8:  0.200000  0.800000  0.000000     0.080000
+                                9:  0.400000  0.000000  0.000000     0.080000
+                               10:  0.400000  0.200000  0.000000     0.080000
+                               11:  0.400000  0.400000  0.000000     0.080000
+                               12:  0.400000  0.600000  0.000000     0.080000
+                               13:  0.400000  0.800000  0.000000     0.080000
+
+K-points in absolute space:     1:  0.000000  0.000000  0.000000
+                                2:  0.000000  0.021767  0.000000
+                                3:  0.000000  0.043534  0.000000
+                                4:  0.018851 -0.010883  0.000000
+                                5:  0.018851  0.010883  0.000000
+                                6:  0.018851  0.032650  0.000000
+                                7:  0.018851  0.054417  0.000000
+                                8:  0.018851  0.076184  0.000000
+                                9:  0.037701 -0.021767  0.000000
+                               10:  0.037701  0.000000  0.000000
+                               11:  0.037701  0.021767  0.000000
+                               12:  0.037701  0.043534  0.000000
+                               13:  0.037701  0.065300  0.000000
+
+Extra options:
+                             Mulliken analysis
+                             Force calculation
+Force type                   original
+
+--------------------------------------------------------------------------------
+
+***  Geometry step: 0
+
+ iSCC Total electronic   Diff electronic      SCC error    
+    1    0.00000000E+00    0.00000000E+00    0.66830432E+00
+    2   -0.43264969E+02   -0.43264969E+02    0.25562727E+01
+    3   -0.15453639E+02    0.27811330E+02    0.15343027E+01
+    4   -0.29787366E+02   -0.14333727E+02    0.45510827E+00
+    5   -0.43416232E+02   -0.13628866E+02    0.33807925E+00
+    6   -0.43553861E+02   -0.13762922E+00    0.80657727E-01
+    7   -0.43686714E+02   -0.13285280E+00    0.13051513E+00
+    8   -0.43658605E+02    0.28108478E-01    0.19022861E-01
+    9   -0.43691053E+02   -0.32447270E-01    0.99398779E-02
+   10   -0.43691166E+02   -0.11357711E-03    0.65128098E-02
+   11   -0.43691222E+02   -0.55500240E-04    0.25367856E-02
+   12   -0.43691281E+02   -0.59326814E-04    0.11665352E-02
+   13   -0.43691282E+02   -0.63729102E-06    0.13117705E-03
+   14   -0.43691285E+02   -0.36684165E-05    0.15078571E-03
+   15   -0.43691285E+02   -0.46724296E-08    0.36602343E-04
+   16   -0.43691285E+02    0.25517814E-07    0.85800266E-05
+   17   -0.43691285E+02    0.20462764E-07    0.33611555E-05
+   18   -0.43691285E+02    0.62899019E-08    0.12774039E-05
+   19   -0.43691285E+02   -0.94082253E-09    0.47223605E-07
+   20   -0.43691285E+02   -0.44764192E-09    0.11032890E-07
+>> Charges saved for restart in charges.bin
+   21   -0.43691285E+02    0.21323388E-10    0.25670133E-08
+   22   -0.43691285E+02    0.13713475E-11    0.52532689E-09
+>> Charges saved for restart in charges.bin
+
+Total Energy:                      -45.2150826232 H        -1230.3650 eV
+Extrapolated to 0K:                -45.2161741337 H        -1230.3947 eV
+Total Mermin free energy:          -45.2172656443 H        -1230.4244 eV
+Force related energy:              -45.2172656443 H        -1230.4244 eV
+
+Volume:                              0.403005E+04 au^3   0.597193E+03 A^3
+Pressure:                           -0.897081E-04 au    -0.263930E+10 Pa
+
+--------------------------------------------------------------------------------
+DFTB+ running times                          cpu [s]             wall clock [s]
+--------------------------------------------------------------------------------
+Pre-SCC initialisation                 +       0.01 (  0.1%)       0.01 (  0.2%)
+SCC                                    +       7.40 ( 97.7%)       7.44 ( 97.7%)
+Post-SCC processing                    +       0.16 (  2.0%)       0.16 (  2.0%)
+--------------------------------------------------------------------------------
+Missing                                +       0.00 (  0.1%)       0.00 (  0.1%)
+Total                                  =       7.57 (100.0%)       7.61 (100.0%)
+--------------------------------------------------------------------------------
