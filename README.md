@@ -5,7 +5,7 @@ A tool to automatize the ChIMES frames and matrix generation process
 ChIMES_Analysis/  
 ├── bin/  
 │  ├── gen_frame  
-│  ├── gen_multi_frames  
+│  ├── reduce_matrix  
 ├── modules/  
 │  ├── __init__.py  
 │  ├── gen_frame.py  
