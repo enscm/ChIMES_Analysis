@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import sys
+from modules import reduce_matrix as _reduce_matrix
+
+try:
+    _reduce_matrix.main()
+except Exception as e:
+    print(f"An error occurred: {e}")
