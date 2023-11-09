@@ -9,7 +9,7 @@ ChIMES_Analysis/
 ├── modules/  
 │  ├── __init__.py  
 │  ├── gen_frame.py  
-|  ├── reduce_matrix.py
+|  ├── reduce_matrix.py  
 ├── examples/  
 |  |── atomic_energy_list.json  
 |  |── fm_setup.in
