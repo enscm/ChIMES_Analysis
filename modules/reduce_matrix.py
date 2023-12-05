@@ -10,22 +10,21 @@ Those reduced matrix then can be "added-up" frame-by-frame through 'combine_matr
 
 
 def _read_matrix(structure):
-    aa = np.loadtxt(structure+"A.txt",dtype='float')
-    bb = np.loadtxt(structure+"b.txt",dtype='float')
-    os.remove("A.txt")
-    os.remove("b.txt")
+    aa = np.loadtxt(structure+'/' + "A.txt",ndmin=1)
+    bb = np.loadtxt(structure+'/' + "b.txt", ndmin=1)
+    os.remove(structure+'/' + "A.txt")
+    os.remove(structure+'/' + "b.txt")
     return aa, bb
 
 def _reduce_matrix(prefix=None,structure_list=None):
     with open(structure_list, "r") as f:
         lines = f.readlines()
 
-    keep_lines = []
     for line in lines:
         structure = line.strip().split()[0]
         aa, bb = _read_matrix(structure)
-        A = aa[-1]
-        b = bb[-1]
+        A = aa[-1:]
+        b = bb[-1:]
         np.savetxt(structure + '/' + prefix + 'A.txt', A, delimiter='\t')
         np.savetxt(structure + '/' + prefix + 'b.txt', b, delimiter='\t')
 
