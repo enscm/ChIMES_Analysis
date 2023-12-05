@@ -2,6 +2,13 @@ import os
 import sys
 import numpy as np
 
+"""
+This script reduce the chimes_lsq generated A.txt and b.txt matrix (the huge energies and 3-times repeated forces lines are removed, 
+which results in a energy weight = 0 situation with much smaller cpu demands in following chimes parameter generation step and allows using thousands bigger dataset volume.).
+Those reduced matrix then can be "added-up" frame-by-frame through 'combine_matrix.py'.
+"""
+
+
 def _read_matrix(structure):
     aa = np.loadtxt(structure+"A.txt",dtype='float')
     bb = np.loadtxt(structure+"b.txt",dtype='float')
