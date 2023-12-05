@@ -23,8 +23,10 @@ def _reduce_matrix(prefix=None,structure_list=None):
         np.savetxt(structure + '/' + prefix + 'b.txt', b, delimiter='\t')
 
 def main():
-    print("		USAGE:	reduce_matrix structure_list	")
-    print("")
+    if len(sys.argv) != 3:
+        print("USAGE: python reduce_matrix.py structure_list prefix")
+        return
+
     structure_list = sys.argv[1]
     prefix = sys.argv[2]
     _reduce_matrix(prefix=prefix, structure_list=structure_list)
